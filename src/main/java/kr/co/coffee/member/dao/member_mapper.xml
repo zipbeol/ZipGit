@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+<!-- 이 xml 은 어떤 interface 를 참조해서 사용해야 하는가? -->
+<mapper namespace="kr.co.coffee.member.dao.MemberDAO">
+
+	<insert id="join" parameterType="map">
+		INSERT INTO member(id,pw,name,age,gender,email)
+		VALUES(#{id},#{pw},#{name},#{age},#{gender},#{email})
+	</insert>
+	
+	<select id="overlay" resultType="int">
+		select count(id) from member where id = #{param1}
+	</select>
+	
+	<insert id="setPermission">
+		INSERT INTO author (id,perm)
+			VALUES(#{param1},#{param2})
+	</insert>
+	
+	<select id="login" resultType="kr.co.coffee.member.dto.MemberDTO">
+		SELECT m.id,m.name,a.perm
+		FROM member m LEFT JOIN author a ON m.id = a.id
+		WHERE m.id = #{param1} AND m.pw = #{param2}
+	</select>
+
+</mapper>
