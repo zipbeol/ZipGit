@@ -15,5 +15,14 @@
 	<button onclick="test()">클릭해 주세요</button>
 </body>
 <script>
+	var arr = [];
+	var obj = {};
+	
+	function test(){
+		alert('test 입니다.');
+	}
+
+
+
 </script>
 </html>
