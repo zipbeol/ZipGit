@@ -14,5 +14,10 @@
 	<p>불필요한 내용</p>
 </body>
 <script>
+	var arr = [];
+	
+
+
+
 </script>
 </html>
